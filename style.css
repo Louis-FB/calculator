@@ -1,0 +1,28 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+}
+.inner {
+  height: 100%;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calc {
+  padding: 10px;
+  width: 256px;
+  height: 482px;
+  background-color: #525554;
+  border-radius: 8px;
+}
+.calc-inner {
+  display: flex;
+  flex-direction: column;
+}
