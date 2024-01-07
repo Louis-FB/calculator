@@ -117,15 +117,7 @@ body {
 
 .title {
   padding: 0px 8px;
-
-  p {
-    margin: 0px;
-    font-weight: 600;
-    font-size: 1.3rem;
-    padding: 10px 0px;
-    text-align: center;
-    box-shadow: 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
-    /* background: rgb(255, 255, 255); */
+  .title-inner {
     background: #dedede
       linear-gradient(
         180deg,
@@ -139,13 +131,20 @@ body {
         rgba(0, 0, 0, 0.2) 90%,
         rgba(255, 255, 255, 1) 100%
       );
-    color: #dcdcdc;
-    text-shadow: 0px -2px 1px rgba(0, 0, 0, 0.5);
-    /* mix-blend-mode: screen; */
-    position: relative;
+    box-shadow: 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
+    p {
+      margin: 0px;
+      font-weight: 600;
+      font-size: 1.3rem;
+      padding: 10px 0px;
+      text-align: center;
 
-    /* color: #ececec;
-  text-shadow: 0px -2px 1px #8d8d8d; */
+      color: #dcdcdc;
+      text-shadow: 0px -2px 1px rgba(0, 0, 0, 0.5);
+      position: relative;
+
+      /* color: #c7c7c7; */
+    }
   }
 }
 .calc-main {
@@ -275,7 +274,7 @@ body {
         .btn-blue {
           background: rgb(2, 114, 167);
           background: linear-gradient(
-            90deg,
+            0deg,
             rgba(2, 114, 167, 1) 0%,
             rgba(28, 150, 208, 1) 100%
           );
@@ -285,7 +284,7 @@ body {
             width: 100%;
             background: rgb(2, 114, 167);
             background: linear-gradient(
-              270deg,
+              180deg,
               rgba(2, 114, 167, 1) 0%,
               rgba(28, 150, 208, 1) 100%
             );
@@ -299,13 +298,13 @@ body {
         .btn-blue:active {
           transition: 0.1;
           background: linear-gradient(
-            90deg,
+            0deg,
             rgba(2, 114, 167, 1) 0%,
             rgba(28, 150, 208, 1) 40%
           );
           .btn-blue-inner {
             background: linear-gradient(
-              270deg,
+              180deg,
               rgba(2, 114, 167, 1) 0%,
               rgba(28, 150, 208, 1) 40%
             );
@@ -313,13 +312,13 @@ body {
         }
         .btn-black {
           background: #111111;
-          background: linear-gradient(90deg, #111111 0%, #3c3c3c 100%);
+          background: linear-gradient(0deg, #111111 0%, #3c3c3c 100%);
           .btn-black-inner {
             border-radius: 90px;
             height: 100%;
             width: 100%;
             background: #111111;
-            background: linear-gradient(270deg, #111111 0%, #3c3c3c 100%);
+            background: linear-gradient(180deg, #111111 0%, #3c3c3c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -329,20 +328,20 @@ body {
         }
         .btn-black:active {
           transition: 0.1s;
-          background: linear-gradient(90deg, #111111 0%, #3c3c3c 40%);
+          background: linear-gradient(0deg, #111111 0%, #3c3c3c 40%);
           .btn-black-inner {
-            background: linear-gradient(270deg, #111111 0%, #3c3c3c 40%);
+            background: linear-gradient(180deg, #111111 0%, #3c3c3c 40%);
           }
         }
         .btn-orange {
           background: #c8431e;
-          background: linear-gradient(90deg, #c8431e 0%, #ff7f5b 100%);
+          background: linear-gradient(0deg, #c8431e 0%, #ff7f5b 100%);
           .btn-orange-inner {
             border-radius: 90px;
             height: 100%;
             width: 100%;
             background: #c8431e;
-            background: linear-gradient(270deg, #c8431e 0%, #ff7f5b 100%);
+            background: linear-gradient(180deg, #c8431e 0%, #ff7f5b 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -352,10 +351,10 @@ body {
         }
         .btn-orange:active {
           transition: 0.1s;
-          background: linear-gradient(90deg, #c8431e 0%, #ff7f5b 40%);
+          background: linear-gradient(0deg, #c8431e 0%, #ff7f5b 40%);
           .btn-orange-inner {
             transition: 0.1s;
-            background: linear-gradient(270deg, #c8431e 0%, #ff7f5b 40%);
+            background: linear-gradient(180deg, #c8431e 0%, #ff7f5b 40%);
           }
         }
         .slider-cont {
