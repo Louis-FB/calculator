@@ -17,10 +17,7 @@ function disableInput(condition) {
   if (condition == true) {
     document.getElementsByClassName("screen-input")[0].value = "";
   } else {
-    document
-      .getElementsByClassName("screen-input")[0]
-      .focus({ focusVisible: true });
-    console.log("focusing");
+    document.getElementsByClassName("screen-input")[0].focus();
   }
   document.getElementsByClassName("screen-input")[0].disabled = condition;
 }
