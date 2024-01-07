@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100;400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="inner">
@@ -33,18 +37,25 @@
             <div class="calc-main-inner">
               <div class="screen-border">
                 <div class="screen">
-                  <div class="screen-ring"></div>
+                  <div class="screen-ring">
+                    <input
+                      type="text"
+                      disabled
+                      class="screen-input glow"
+                      value="634"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="keyboard-cont">
                 <div class="btn-cont">
                   <div class="slider-cont">
-                    <button class="slider">
+                    <button class="slider" onclick="toggleSlider()">
                       <div class="slider-round">
                         <div class="round-inner"></div>
                       </div>
                     </button>
-                    <p>On</p>
+                    <p>ON</p>
                   </div>
                 </div>
                 <div class="btn-cont">
@@ -148,5 +159,59 @@
         </div>
       </div>
     </div>
+    <script>
+      let toggled = false;
+
+      function playAudio(effect) {
+        const slide = new Audio("./assets/slide.mp3");
+        const click = new Audio("./assets/click.mp3");
+        switch (effect) {
+          case "slide":
+            slide.play();
+            break;
+          case "click":
+            click.play();
+            break;
+        }
+      }
+
+      function disableInput(condition) {
+        if (condition == true) {
+          document.getElementsByClassName("screen-input")[0].value = "";
+        } else {
+          document
+            .getElementsByClassName("screen-input")[0]
+            .focus({ focusVisible: true });
+          console.log("focusing");
+        }
+        document.getElementsByClassName("screen-input")[0].disabled = condition;
+      }
+
+      function buttonClick() {
+        playAudio("click");
+      }
+
+      function toggleSlider() {
+        playAudio("slide");
+        if (toggled === false) {
+          toggled = true;
+          document
+            .getElementsByClassName("slider-round")[0]
+            .classList.add("toggled-on");
+          disableInput(false);
+        } else {
+          toggled = false;
+          document
+            .getElementsByClassName("slider-round")[0]
+            .classList.remove("toggled-on");
+          disableInput(true);
+        }
+      }
+
+      const buttons = document.querySelectorAll(".btn");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => playAudio("click"));
+      });
+    </script>
   </body>
 </html>

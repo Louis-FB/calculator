@@ -7,12 +7,13 @@
 }
 body {
   background: #ffffff;
-  background: linear-gradient(0deg, #ffffff 0%, #95fdff 100%);
+  background: linear-gradient(0deg, #95fdff 0%, #ffffff 100%);
   height: 100vh;
   width: 100vw;
-  /* padding: 0px; */
+  padding: 15px;
   margin: 0px;
   font-family: "Azeret Mono", monospace;
+  overflow: hidden;
 }
 .inner {
   height: 100%;
@@ -20,11 +21,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* padding: 30px; */
 }
 .calc {
-  width: calc(90vh / 1.9);
-  height: 90vh;
-  /* background: rgb(0, 0, 0); */
+  height: 640px;
+  width: 330px;
+  max-height: 90vh;
+  overflow: hidden;
+  /* height: 100%; */
+  /* width: calc(90vh / 1.9); */
+  display: flex;
   background: #525554
     linear-gradient(
       180deg,
@@ -38,7 +44,8 @@ body {
   display: flex;
   border-radius: 8px;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
+  flex: 1;
   width: 100%;
   background: linear-gradient(
       to bottom,
@@ -54,7 +61,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 30px 0px;
+  padding: 30px 0px 15px 0px;
 }
 .banner {
   display: flex;
@@ -71,7 +78,7 @@ body {
 /* Left column with the grille */
 .banner .banner-col .sub-col:nth-child(1) {
   /* background-color: pink; */
-  width: 30px;
+  width: 15px;
 }
 /* Left column containing the title */
 .banner .banner-col .sub-col:nth-child(2) {
@@ -119,17 +126,28 @@ body {
   text-align: center;
   box-shadow: 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
   background: rgb(255, 255, 255);
-  background: #ececec
+  background: #dedede
     linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(0, 0, 0, 0.1) 10%,
+      rgba(0, 0, 0, 0.2) 22%,
+      rgba(0, 0, 0, 0.1) 35%,
       rgba(255, 255, 255, 1) 50%,
-      rgba(1, 1, 1, 0.4) 100%
+      rgba(0, 0, 0, 0.2) 65%,
+      rgba(0, 0, 0, 0.3) 78%,
+      rgba(0, 0, 0, 0.2) 90%,
+      rgba(255, 255, 255, 1) 100%
     );
+  /* mix-blend-mode: screen; */
+
+  /* color: #ececec;
+  text-shadow: 0px -2px 1px #8d8d8d; */
 }
 .calc-main {
-  padding: 0px 30px 30px 30px;
-  height: 100%;
+  padding: 0px 20px 30px 20px;
+  /* height: 100%; */
+  flex: 1;
   width: 100%;
   display: flex;
   flex: 1;
@@ -140,10 +158,12 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    /* height: 100%; */
+    flex: 1;
     box-shadow: 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
     padding: 6px;
     gap: 12px;
+    row-gap: 12px;
     .screen-border {
       background-color: #242424;
       border-radius: 2px;
@@ -151,9 +171,11 @@ body {
       /* margin-bottom: 6px; */
       height: 195px;
       display: flex;
+      flex: 1;
       padding: 6px;
       .screen {
         box-shadow: inset 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
+        height: 130px;
         /* background: #131313; */
         background: #131313
           linear-gradient(
@@ -163,16 +185,33 @@ body {
             rgba(1, 1, 1, 1) 100%
           );
         display: flex;
-        height: 100%;
+        /* height: 100%; */
+        flex: 1;
         width: 100%;
-        border-radius: 6px;
+        border-radius: 8px;
         padding: 8px;
         .screen-ring {
           border-radius: 20px;
-          border: 2px solid white;
+          border: 2px solid rgba(255, 255, 255, 0.5);
           width: 100%;
-          height: 100%;
+          /* height: 100%; */
+          flex: 1;
           display: flex;
+          .screen-input {
+            width: 100%;
+            /* height: 100%; */
+            flex: 1;
+            background: none;
+            border: none;
+            font-family: "VT323", monospace;
+            color: red;
+            text-align: right;
+            font-size: 2rem;
+            padding: 20px;
+          }
+          .screen-input:focus {
+            outline: none;
+          }
         }
       }
     }
@@ -183,15 +222,32 @@ body {
       border-radius: 2px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      /* gap: 5px; */
-      height: 100%;
-      background: #ececec
+      grid-template-rows: repeat(5, 1fr);
+      gap: 14px;
+      /* height: 100%; */
+      flex: 1;
+      /* background: #ececec
         linear-gradient(
           to bottom,
           rgba(0, 0, 0, 0.3) 0%,
           rgba(255, 255, 255, 1) 50%,
           rgba(1, 1, 1, 0.4) 100%
+        ); */
+
+      background: #ececec
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(0, 0, 0, 0.1) 10%,
+          rgba(0, 0, 0, 0.2) 22%,
+          rgba(0, 0, 0, 0.1) 35%,
+          rgba(255, 255, 255, 1) 50%,
+          rgba(0, 0, 0, 0.2) 65%,
+          rgba(0, 0, 0, 0.3) 78%,
+          rgba(0, 0, 0, 0.2) 90%,
+          rgba(255, 255, 255, 1) 100%
         );
+
       /* margin-top: 6px; */
       .btn-cont {
         display: flex;
@@ -199,13 +255,16 @@ body {
         justify-content: center;
         /* background-color: red; */
         /* padding: 5px; */
+        aspect-ratio: 1/1;
         .btn {
           display: flex;
           /* font-size: 2rem; */
-          width: 50px;
-          height: 50px;
+          /* /* width: 50px; */
+          /* height: 50px; */
+          height: 100%;
+          width: 100%;
           border: none;
-          border-radius: 2px;
+          border-radius: 3px;
           box-shadow: 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
           padding: 3px;
           cursor: pointer;
@@ -334,9 +393,9 @@ body {
               }
             }
           }
-          .slider:active {
-            .slider-round {
-              bottom: 0;
+          .slider {
+            .toggled-on {
+              bottom: 0 !important;
               top: auto;
               /* bottom: 0 !important; */
             }
@@ -349,5 +408,19 @@ body {
         }
       }
     }
+  }
+}
+.glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 5px red, 0 0 45px red;
+  }
+  to {
+    text-shadow: 0 0 5px red, 0 0 45px red;
   }
 }
