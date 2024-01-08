@@ -16,10 +16,11 @@ function playAudio(effect) {
 function disableInput(condition) {
   if (condition == true) {
     document.getElementsByClassName("screen-input")[0].value = "";
+    document.getElementsByClassName("screen-input")[0].disabled = true;
   } else {
+    document.getElementsByClassName("screen-input")[0].disabled = false;
     document.getElementsByClassName("screen-input")[0].focus();
   }
-  document.getElementsByClassName("screen-input")[0].disabled = condition;
 }
 
 function buttonClick() {
