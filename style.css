@@ -6,14 +6,20 @@
   box-sizing: border-box;
 }
 body {
-  background: #ffffff;
-  background: linear-gradient(0deg, #95fdff 0%, #ffe7b6 100%);
+  /* background: #ffffff; */
+  /* background: linear-gradient(0deg, #95fdff 0%, #ffe7b6 100%); */
   height: 100vh;
   width: 100vw;
   padding: 15px;
   margin: 0px;
   font-family: "Azeret Mono", monospace;
   overflow: hidden;
+  background: linear-gradient(270deg, #7bfdff, #ffd683);
+  background-size: 400% 400%;
+
+  -webkit-animation: GradientScroll 30s ease infinite;
+  -moz-animation: GradientScroll 30s ease infinite;
+  animation: GradientScroll 30s ease infinite;
 }
 .inner {
   height: 100%;
@@ -451,5 +457,39 @@ body {
   }
   to {
     text-shadow: 0 0 5px red, 0 0 45px red;
+  }
+}
+
+@-webkit-keyframes GradientScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes GradientScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes GradientScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
