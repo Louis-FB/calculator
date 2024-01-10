@@ -1,5 +1,3 @@
-const screenInput = document.getElementsByClassName("screen-display")[0];
-
 let toggled = false;
 
 function playAudio(effect) {
@@ -17,11 +15,8 @@ function playAudio(effect) {
 
 function disableInput(condition) {
   if (condition == true) {
-    screenDisplay.innerHTML = "";
-    // document.getElementsByClassName("screen-input")[0].disabled = true;
+    calc.clear();
   } else {
-    // document.getElementsByClassName("screen-input")[0].disabled = false;
-    // document.getElementsByClassName("screen-input")[0].focus();
     return;
   }
 }
@@ -58,9 +53,8 @@ class Calculator {
     this.equation = [];
   }
   createEquation(val) {
-    this.number.push(val);
+    this?.number.push(val);
 
-    // document.getElementById("display-number").innerHTML = this.number.join("");
     document.getElementsByClassName("equation-para")[0].innerHTML =
       this.equation.join("") + this.number.join("");
   }
@@ -69,9 +63,6 @@ class Calculator {
     this.equation.push(op);
     this.number = [];
 
-    // document.getElementById("display-equation").innerHTML =
-    //   this.equation.join("");
-    // document.getElementById("display-number").innerHTML = "";
     document.getElementsByClassName("equation-para")[0].innerHTML =
       this.equation.join("");
   }
@@ -80,6 +71,17 @@ class Calculator {
     this.equation = [];
     document.getElementsByClassName("equation-para")[0].innerHTML = "";
     document.getElementsByClassName("answer-para")[0].innerHTML = "";
+  }
+  subtract() {
+    if (this.number.length > 0) {
+      this.number.pop();
+      document.getElementsByClassName("equation-para")[0].innerHTML =
+        this.number.join("");
+    } else if (this.equation.length > 0) {
+      this.equation.pop();
+      document.getElementsByClassName("equation-para")[0].innerHTML =
+        this.equation.join("");
+    }
   }
   getTotal() {
     this.equation.push(parseInt(this.number.join("")));

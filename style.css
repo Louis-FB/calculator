@@ -216,8 +216,11 @@ body {
             font-size: 2rem;
             padding: 20px;
             margin: 0;
+            overflow-x: hidden;
             p {
               margin: 0;
+            }
+            .equation-para {
             }
           }
           .screen-input:focus {
