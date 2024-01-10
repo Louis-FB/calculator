@@ -38,7 +38,10 @@
               <div class="screen-border">
                 <div class="screen">
                   <div class="screen-ring">
-                    <input type="text" disabled class="screen-input glow" />
+                    <div class="screen-display glow">
+                      <p class="equation-para"></p>
+                      <p class="answer-para" id="display-answer"></p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -64,72 +67,109 @@
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-blue">
+                  <button class="btn btn-blue" onclick="calc.addOperator('/')">
                     <div class="btn-inner btn-blue-inner">÷</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(7)"
+                  >
                     <div class="btn-inner btn-black-inner">7</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(8)"
+                  >
                     <div class="btn-inner btn-black-inner">8</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(9)"
+                  >
                     <div class="btn-inner btn-black-inner">9</div>
                   </button>
                 </div>
                 <div class="btn-cont">
                   <button class="btn btn-blue">
-                    <div class="btn-inner btn-blue-inner">&#10005;</div>
+                    <div
+                      class="btn-inner btn-blue-inner"
+                      onclick="calc.addOperator('*')"
+                    >
+                      &#10005;
+                    </div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(4)"
+                  >
                     <div class="btn-inner btn-black-inner">4</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(5)"
+                  >
                     <div class="btn-inner btn-black-inner">5</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(6)"
+                  >
                     <div class="btn-inner btn-black-inner">6</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-blue">
+                  <button class="btn btn-blue" onclick="calc.addOperator('-')">
                     <div class="btn-inner btn-blue-inner">&#8722;</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-black">
-                    <div class="btn-inner btn-black-inner">3</div>
-                  </button>
-                </div>
-                <div class="btn-cont">
-                  <button class="btn btn-black">
-                    <div class="btn-inner btn-black-inner">2</div>
-                  </button>
-                </div>
-                <div class="btn-cont">
-                  <button class="btn btn-black">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(1)"
+                  >
                     <div class="btn-inner btn-black-inner">1</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-blue">
-                    <div class="btn-inner btn-blue-inner">+</div>
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(2)"
+                  >
+                    <div class="btn-inner btn-black-inner">2</div>
                   </button>
                 </div>
                 <div class="btn-cont">
-                  <button class="btn btn-orange">
+                  <button
+                    class="btn btn-black"
+                    onclick="calc.createEquation(3)"
+                  >
+                    <div class="btn-inner btn-black-inner">3</div>
+                  </button>
+                </div>
+                <div class="btn-cont">
+                  <button class="btn btn-blue">
+                    <div
+                      class="btn-inner btn-blue-inner"
+                      onclick="calc.addOperator('+')"
+                    >
+                      +
+                    </div>
+                  </button>
+                </div>
+                <div class="btn-cont">
+                  <button class="btn btn-orange" onclick="calc.clear()">
                     <div class="btn-inner btn-orange-inner">C</div>
                   </button>
                 </div>
@@ -140,12 +180,24 @@
                 </div>
                 <div class="btn-cont">
                   <button class="btn btn-black">
-                    <div class="btn-inner btn-black-inner">&#903;</div>
+                    <div
+                      class="btn-inner btn-black-inner"
+                      {#
+                      onclick="calc.addOperator('+')"
+                      #}
+                    >
+                      &#903;
+                    </div>
                   </button>
                 </div>
                 <div class="btn-cont">
                   <button class="btn btn-blue">
-                    <div class="btn-inner btn-blue-inner">=</div>
+                    <div
+                      class="btn-inner btn-blue-inner"
+                      onclick="calc.getTotal()"
+                    >
+                      =
+                    </div>
                   </button>
                 </div>
               </div>
