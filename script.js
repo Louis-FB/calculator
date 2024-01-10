@@ -77,10 +77,8 @@ class Calculator {
       this.number.pop();
       document.getElementsByClassName("equation-para")[0].innerHTML =
         this.number.join("");
-    } else if (this.equation.length > 0) {
-      this.equation.pop();
-      document.getElementsByClassName("equation-para")[0].innerHTML =
-        this.equation.join("");
+    } else {
+      return;
     }
   }
   getTotal() {
