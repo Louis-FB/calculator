@@ -217,6 +217,10 @@ body {
             padding: 0px 20px;
             margin: 0;
             overflow-x: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex-direction: column;
             p {
               margin: 0;
             }
@@ -411,8 +415,8 @@ body {
             cursor: pointer;
             .slider-round {
               position: absolute;
-              top: 0;
-              bottom: auto;
+              top: auto;
+              bottom: 0;
               background: rgb(255, 255, 255);
               box-shadow: 0px 3px 4px 0px rgba(1, 1, 1, 0.5);
               background: #ececec
@@ -440,8 +444,8 @@ body {
           }
           .slider {
             .toggled-on {
-              bottom: 0 !important;
-              top: auto;
+              top: 0 !important;
+              bottom: auto;
               /* bottom: 0 !important; */
             }
           }
