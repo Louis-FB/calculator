@@ -13,14 +13,6 @@ function playAudio(effect) {
   }
 }
 
-function disableInput(condition) {
-  if (condition == true) {
-    calc.clear();
-  } else {
-    return;
-  }
-}
-
 function buttonClick() {
   playAudio("click");
 }
@@ -32,13 +24,13 @@ function toggleSlider() {
     document
       .getElementsByClassName("slider-round")[0]
       .classList.add("toggled-on");
-    disableInput(false);
+    calc.disable(true);
   } else {
     toggled = false;
     document
       .getElementsByClassName("slider-round")[0]
       .classList.remove("toggled-on");
-    disableInput(true);
+    calc.disable(false);
   }
 }
 
@@ -51,14 +43,23 @@ class Calculator {
   constructor() {
     this.number = [];
     this.equation = [];
+    this.disabled = false;
   }
   createEquation(val) {
+    if (this.disabled === true) {
+      console.log("Disabled!");
+      return;
+    }
     this?.number.push(val);
 
     document.getElementsByClassName("equation-para")[0].innerHTML =
       this.equation.join("") + this.number.join("");
   }
   addOperator(op) {
+    if (this.disabled === true) {
+      console.log("Disabled!");
+      return;
+    }
     this.equation.push(parseInt(this.number.join("")));
     this.equation.push(op);
     this.number = [];
@@ -66,6 +67,15 @@ class Calculator {
     document.getElementsByClassName("equation-para")[0].innerHTML =
       this.equation.join("");
   }
+  disable(condition) {
+    if (condition == true) {
+      this.disabled = true;
+      this.clear();
+    } else {
+      this.disabled = false;
+    }
+  }
+
   clear() {
     this.number = [];
     this.equation = [];
@@ -73,6 +83,10 @@ class Calculator {
     document.getElementsByClassName("answer-para")[0].innerHTML = "";
   }
   subtract() {
+    if (this.disabled === true) {
+      console.log("Disabled!");
+      return;
+    }
     if (this.number.length > 0) {
       this.number.pop();
       document.getElementsByClassName("equation-para")[0].innerHTML =
@@ -82,6 +96,10 @@ class Calculator {
     }
   }
   getTotal() {
+    if (this.disabled === true) {
+      console.log("Disabled!");
+      return;
+    }
     this.equation.push(parseInt(this.number.join("")));
 
     while (this.equation.some((e) => e === "*" || e === "/")) {
