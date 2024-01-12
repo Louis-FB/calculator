@@ -228,6 +228,7 @@ body {
             }
             .answer-para {
               font-size: 2.5rem;
+              margin: 0px;
             }
           }
           .screen-input:focus {

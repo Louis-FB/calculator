@@ -43,12 +43,16 @@ class Calculator {
   constructor() {
     this.number = [];
     this.equation = [];
+    this.total = "";
     this.disabled = false;
   }
   createEquation(val) {
     if (this.disabled === true) {
-      console.log("Disabled!");
       return;
+    }
+    if (this.total) {
+      this.total = "";
+      this.clear();
     }
     this?.number.push(val);
 
@@ -57,12 +61,22 @@ class Calculator {
   }
   addOperator(op) {
     if (this.disabled === true) {
-      console.log("Disabled!");
       return;
     }
-    this.equation.push(parseInt(this.number.join("")));
+
+    if (this.total) {
+      this.equation = [];
+      this.number = [];
+      this.equation.push(parseInt(this.total));
+      this.total = "";
+    }
+
+    if (this.number.length > 0) {
+      this.equation.push(parseInt(this.number.join("")));
+      this.number = [];
+    }
+
     this.equation.push(op);
-    this.number = [];
 
     document.getElementsByClassName("equation-para")[0].innerHTML =
       this.equation.join("");
@@ -75,16 +89,19 @@ class Calculator {
       this.disabled = false;
     }
   }
-
+  error() {
+    this.clear();
+    document.getElementsByClassName("equation-para")[0].innerHTML = "error";
+  }
   clear() {
     this.number = [];
     this.equation = [];
+    // this.total = "";
     document.getElementsByClassName("equation-para")[0].innerHTML = "";
     document.getElementsByClassName("answer-para")[0].innerHTML = "";
   }
   subtract() {
     if (this.disabled === true) {
-      console.log("Disabled!");
       return;
     }
     if (this.number.length > 0) {
@@ -97,7 +114,6 @@ class Calculator {
   }
   getTotal() {
     if (this.disabled === true) {
-      console.log("Disabled!");
       return;
     }
     this.equation.push(parseInt(this.number.join("")));
@@ -125,10 +141,9 @@ class Calculator {
         }
       }
     }
-
-    console.log(this.equation);
+    this.total = this.equation;
     document.getElementsByClassName("answer-para")[0].innerHTML =
-      "= " + this.equation;
+      "= " + this.total;
   }
 }
 const calc = new Calculator();
