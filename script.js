@@ -58,6 +58,8 @@ class Calculator {
 
     document.getElementsByClassName("equation-para")[0].innerHTML =
       this.equation.join("") + this.number.join("");
+
+    // this.display(this.equation.join("") + this.number.join(""));
   }
   addOperator(op) {
     if (this.disabled === true) {
@@ -74,6 +76,21 @@ class Calculator {
     if (this.number.length > 0) {
       this.equation.push(parseInt(this.number.join("")));
       this.number = [];
+    }
+
+    // Replace operator if there is already one.
+
+    const lastInArray = this.equation.slice(-1);
+    if (
+      lastInArray == "*" ||
+      lastInArray == "/" ||
+      lastInArray == "+" ||
+      lastInArray == "-"
+    ) {
+      this.equation[this.equation.length - 1] = op;
+      document.getElementsByClassName("equation-para")[0].innerHTML =
+        this.equation.join("");
+      return;
     }
 
     this.equation.push(op);
@@ -93,6 +110,11 @@ class Calculator {
     this.clear();
     document.getElementsByClassName("equation-para")[0].innerHTML = "error";
   }
+
+  display(info) {
+    document.getElementsByClassName("equation-para")[0].innerHTML = info;
+  }
+
   clear() {
     this.number = [];
     this.equation = [];
@@ -116,6 +138,18 @@ class Calculator {
     if (this.disabled === true) {
       return;
     }
+
+    if (this.equation.length === 0 || this.number.length === 0) {
+      this.error();
+      return;
+    }
+
+    // To prevent trailing operator
+    if (!this.number) {
+      this.error();
+      return;
+    }
+
     this.equation.push(parseInt(this.number.join("")));
 
     while (this.equation.some((e) => e === "*" || e === "/")) {
