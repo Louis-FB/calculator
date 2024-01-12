@@ -78,8 +78,6 @@ class Calculator {
       this.number = [];
     }
 
-    // Replace operator if there is already one.
-
     const lastInArray = this.equation.slice(-1);
     if (
       lastInArray == "*" ||
@@ -111,9 +109,12 @@ class Calculator {
     document.getElementsByClassName("equation-para")[0].innerHTML = "error";
   }
 
-  display(info) {
-    document.getElementsByClassName("equation-para")[0].innerHTML = info;
-  }
+  // displayEquation(info) {
+  //   document.getElementsByClassName("equation-para")[0].innerHTML = info;
+  // }
+  // displayAnswer(answer){
+
+  // }
 
   clear() {
     this.number = [];
@@ -128,8 +129,17 @@ class Calculator {
     }
     if (this.number.length > 0) {
       this.number.pop();
+      if (this.equation.length == 0) {
+        document.getElementsByClassName("equation-para")[0].innerHTML =
+          this.number.join("");
+      } else {
+        document.getElementsByClassName("equation-para")[0].innerHTML =
+          this.equation.join("") + this.number.join("");
+      }
+    } else if (this.equation.length > 0 && this.number.length == 0) {
+      this.equation.splice(this.equation.length - 1, 2);
       document.getElementsByClassName("equation-para")[0].innerHTML =
-        this.number.join("");
+        this.equation.join("");
     } else {
       return;
     }
