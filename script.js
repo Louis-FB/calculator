@@ -191,7 +191,8 @@ class Calculator {
       }
     }
     this.total = this.equation;
-    this.displayAnswer("= " + this.total);
+    document.getElementsByClassName("equation-para")[0].innerHTML += " =";
+    this.displayAnswer(this.total);
   }
 }
 const calc = new Calculator();
