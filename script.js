@@ -127,6 +127,7 @@ class Calculator {
     if (this.disabled === true) {
       return;
     }
+
     // If there is a number on the end of the equation
     if (this.number.length > 0) {
       this.number.pop();
@@ -137,31 +138,19 @@ class Calculator {
         document.getElementsByClassName("equation-para")[0].innerHTML =
           this.equation.join("") + this.number.join("");
       }
-      // Once there is no more number and its just the array proper
     } else if (this.equation.length > 0 && this.number.length == 0) {
+      // Delete who element if operator or single digit
       let lastElement = this.equation[this.equation.length - 1];
-      if (lastElement.length < 2) {
+      if (lastElement.length < 2 || lastElement < 10) {
         this.equation.pop();
       } else {
-        // Error here
-        // Error is because slice cannot be used on a number
-        let lastElementStringified = String(lastElement);
-
-        console.log(lastElementStringified);
+        // Delete single digit from a value > 9
         this.equation[this.equation.length - 1] = parseInt(
-          lastElementStringified.slice(0, -1)
+          lastElement.toString().slice(0, -1)
         );
-        if (isNaN(this.equation)) {
-          this.clear();
-          return;
-        }
-
-        // return;
       }
       document.getElementsByClassName("equation-para")[0].innerHTML =
         this.equation.join("");
-
-      console.log(this.equation);
     } else {
       return;
     }
