@@ -128,7 +128,6 @@ class Calculator {
       return;
     }
 
-    // If there is a number on the end of the equation
     if (this.number.length > 0) {
       this.number.pop();
       if (this.equation.length == 0) {
@@ -139,12 +138,10 @@ class Calculator {
           this.equation.join("") + this.number.join("");
       }
     } else if (this.equation.length > 0 && this.number.length == 0) {
-      // Delete who element if operator or single digit
-      let lastElement = this.equation[this.equation.length - 1];
+      const lastElement = this.equation[this.equation.length - 1];
       if (lastElement.length < 2 || lastElement < 10) {
         this.equation.pop();
       } else {
-        // Delete single digit from a value > 9
         this.equation[this.equation.length - 1] = parseInt(
           lastElement.toString().slice(0, -1)
         );
@@ -160,18 +157,22 @@ class Calculator {
       return;
     }
 
+    if (this.total && this.number.length === 0) {
+      return;
+    }
+
     if (this.equation.length === 0 || this.number.length === 0) {
       this.error();
       return;
     }
 
-    // To prevent trailing operator
     if (!this.number) {
       this.error();
       return;
     }
 
     this.equation.push(parseInt(this.number.join("")));
+    this.number = [];
 
     while (this.equation.some((e) => e === "*" || e === "/")) {
       for (let i = 0; i < this.equation.length; i++) {
