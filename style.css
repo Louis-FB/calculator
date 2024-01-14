@@ -212,7 +212,6 @@ body {
             border: none;
             font-family: "Orbitron", "Calculator", "VT323", monospace;
             color: red;
-            text-align: right;
             padding: 0px 20px;
             margin: 0;
             overflow-x: hidden;
@@ -222,6 +221,8 @@ body {
             flex-direction: column;
             p {
               margin: 0;
+              width: 100%;
+              text-align: right;
             }
             .equation-para {
               font-size: 1.5rem;
