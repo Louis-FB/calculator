@@ -1,13 +1,7 @@
-/* * {
-  padding: 0px;
-  margin: 0px;
-} */
 * {
   box-sizing: border-box;
 }
 body {
-  /* background: #ffffff; */
-  /* background: linear-gradient(0deg, #95fdff 0%, #ffe7b6 100%); */
   height: 100vh;
   width: 100vw;
   padding: 15px;
