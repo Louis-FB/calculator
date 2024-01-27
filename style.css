@@ -6,7 +6,7 @@ body {
   width: 100vw;
   padding: 15px;
   margin: 0px;
-  font-family: "Azeret Mono", monospace, "arial";
+  font-family: "Azeret Mono", monospace;
   overflow: hidden;
   background: linear-gradient(270deg, #ff7bf4, #ffd683);
   background-size: 400% 400%;
